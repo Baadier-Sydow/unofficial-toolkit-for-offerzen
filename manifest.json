@@ -1,0 +1,52 @@
+{
+  "name": "(Unofficial) Toolkit for Offerzen",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "Toolkit to provide additional customization to the Offerzen platform. Completely unofficial and not supported in any way by Offerzen.",
+  "homepage_url": "http://baadiersydow.com",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "default_locale": "en",
+  "background": {
+    "scripts": [
+      "src/bg/background.js"
+    ],
+    "persistent": true
+  },
+  "options_page": "src/options_custom/index.html",
+  "page_action": {
+    "default_icon": "icons/icon19.png",
+    "default_title": "page action demo",
+    "default_popup": "src/page_action/page_action.html"
+  },
+  "permissions": [
+    "contentSettings",
+    "https://www.offerzen.com/*",
+    "http://www.offerzen.com/*",
+    "https://offerzen.com/*",
+    "http://offerzen.com/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "http://*.offerzen.com/*",
+        "https://*.offerzen.com/*"
+      ],
+      "css": [
+        "src/inject/inject.css"
+      ]
+    },
+    {
+      "matches": [
+        "http://*.offerzen.com/*",
+        "https://*.offerzen.com/*"
+      ],
+      "js": [
+        "src/inject/inject.js"
+      ]
+    }
+  ]
+}
